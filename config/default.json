@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://abayomi123:abayomi123@conectorclust-5luts.mongodb.net/<dbname>?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://abayomi123:abayomi123@conectorclust-5luts.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "jwtSecret": "secrettoken"
 }
