@@ -94,7 +94,7 @@ const ProfileSchema = new mongoose.Schema({
     twitter: {
       type: String,
     },
-    facebool: {
+    facebook: {
       type: String,
     },
     linkedin: {
