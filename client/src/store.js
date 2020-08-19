@@ -5,7 +5,7 @@ import rootRudcer from "./reducers";
 
 const initialState = {};
 
-const middlewre = { thunk };
+const middlewre = [thunk];
 
 const store = createStore(
   rootRudcer,
