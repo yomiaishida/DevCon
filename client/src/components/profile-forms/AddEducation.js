@@ -8,7 +8,7 @@ const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
     school: "",
     degree: "",
-    fielofstudy: "",
+    fieldofstudy: "",
     from: "",
     to: "",
     current: false,
