@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://abayomi123:abayomi123@conectorclust-5luts.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "jwtSecret": "secrettoken",
+  "githubClientId": "2ab505495814bac43bec",
+  "githubSecret": "b29b4a4c4b114865c5e74a6cbaf49750245e765d"
+}
