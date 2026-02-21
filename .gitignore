@@ -1,3 +1,8 @@
 node_modules/
 client/debug.log
 .env
+client/.env
+.env.*
+!.env.example
+client/.env*
+!client/.env.example
