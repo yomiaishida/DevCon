@@ -1,9 +1,13 @@
+require("dotenv").config();
+
 const express = require("express");
-const connectDB = require("./config/db");
-const { connect } = require("mongoose");
 const path = require("path");
+const validateRuntimeConfig = require("./config/validateEnv");
+const connectDB = require("./config/db");
 
 const app = express();
+
+validateRuntimeConfig();
 
 // Connect Database
 connectDB();
