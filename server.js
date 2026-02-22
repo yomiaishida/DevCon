@@ -16,18 +16,25 @@ connectDB();
 // Init Middleware
 app.use(express.json({ extended: false }));
 
+function normalizeOrigin(value) {
+  return String(value || "")
+    .trim()
+    .replace(/\/+$/, "");
+}
+
 const allowedOrigins = (process.env.CLIENT_ORIGIN || "")
   .split(",")
-  .map((origin) => origin.trim())
+  .map(normalizeOrigin)
   .filter(Boolean);
 
 app.use((req, res, next) => {
   const origin = req.headers.origin;
+  const normalizedOrigin = normalizeOrigin(origin);
   const allowAllOrigins = allowedOrigins.length === 0;
 
   if (allowAllOrigins) {
     res.header("Access-Control-Allow-Origin", "*");
-  } else if (origin && allowedOrigins.includes(origin)) {
+  } else if (origin && allowedOrigins.includes(normalizedOrigin)) {
     res.header("Access-Control-Allow-Origin", origin);
     res.header("Vary", "Origin");
   }
@@ -42,7 +49,7 @@ app.use((req, res, next) => {
     return res.sendStatus(204);
   }
 
-  if (!allowAllOrigins && origin && !allowedOrigins.includes(origin)) {
+  if (!allowAllOrigins && origin && !allowedOrigins.includes(normalizedOrigin)) {
     return res.status(403).json({ msg: "CORS origin denied" });
   }
 
